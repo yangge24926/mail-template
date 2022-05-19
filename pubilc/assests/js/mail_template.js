@@ -79,13 +79,13 @@ docs = [
   },
 ]
 docs.forEach(function (doc) {
-  db.getSiblingDB('app')['template'].updateOne(
+  db.getSiblingDB('app')['template_vadata'].updateOne(
     { '_id': doc['_id'] },
     { '$set': doc },
     { 'upsert': true }
   );
 });
 
-db.getSiblingDB('app')['template'].find().sort({ '_id': 1 }).forEach(function (doc) {
+db.getSiblingDB('app')['template_vadata'].find().sort({ '_id': 1 }).forEach(function (doc) {
   print(doc['_id']);
 });
